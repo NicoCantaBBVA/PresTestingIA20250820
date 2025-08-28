@@ -53,11 +53,11 @@
         }
         .main-content {
             flex: 1;
-            padding: 60px 40px 40px 60px;
+            padding: 30px 40px 40px 60px;
             position: relative;
         }
         .title-container {
-            margin-bottom: 20px; /* Reducido para achicar el espacio */
+            margin-bottom: 10px;
         }
         .title {
             font-size: 44px;
@@ -78,9 +78,11 @@
         .content-card {
             background-color: rgba(26, 54, 93, 0.6);
             border-radius: 10px;
-            padding: 15px; /* Reducido el padding */
-            margin-bottom: 10px; /* Reducido el margen */
+            padding: 10px;
+            margin-bottom: 10px; /* Se ha eliminado el margin-left y margin-right */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 20;
         }
         .footer {
             position: absolute;
@@ -111,18 +113,18 @@
         .stats-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 15px; /* Reducido el margen */
+            margin-top: 15px;
         }
         .stat-box {
             width: 220px;
-            height: 180px; /* Reducida la altura para achicar el componente */
+            height: 150px;
             background-color: rgba(26, 54, 93, 0.8);
             border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 15px; /* Reducido el padding */
+            padding: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.2s;
         }
@@ -130,31 +132,31 @@
             transform: translateY(-5px);
         }
         .stat-icon {
-            width: 50px; /* Ajustado el tamaño del ícono */
+            width: 50px;
             height: 50px;
             background-color: #2d4a7a;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px; /* Reducido el margen */
+            margin-bottom: 10px;
             color: #81e6d9;
         }
         .stat-value {
-            font-size: 36px; /* Reducido el tamaño de fuente */
+            font-size: 36px;
             font-weight: 700;
             color: #4299e1;
             margin: 5px 0;
         }
         .stat-label {
-            font-size: 14px; /* Reducido el tamaño de fuente */
+            font-size: 14px;
             color: #a3bffa;
             text-align: center;
         }
         .chart-container {
             width: 380px;
-            height: 280px; /* Reducida la altura del gráfico */
-            margin-top: -20px; /* Reducido el margen superior */
+            height: 220px;
+            margin-top: -20px;
             margin-left: 30px;
         }
         .effort-data {
@@ -221,7 +223,7 @@
 </div>
 </div>
 <div class="flex mt-6">
-<div class="content-card flex-1">
+<div class="content-card">
 <h2 class="text-2xl font-semibold mb-4 text-blue-300">Esfuerzo Total del Proyecto</h2>
 <div class="effort-data">
 <div>
