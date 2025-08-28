@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Beneficios de la Metodología Ágil/DevOps y la Automatización</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Beneficios de la Metodología Ágil/DevOps y la Automatización</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+    <style>
         body {
             margin: 0;
             padding: 0;
@@ -54,14 +53,15 @@
             position: relative;
         }
         .title-container {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         .title {
-            font-size: 44px;
+            font-size: 32px; /* Tamaño de fuente ajustado */
             font-weight: 600;
             color: #ffffff;
             position: relative;
             display: inline-block;
+            line-height: 1.2;
         }
         .title:after {
             content: '';
@@ -117,7 +117,7 @@
             align-items: center;
             justify-content: flex-end;
             padding: 0 40px;
-            z-index: 99; /* Esto asegura que el footer esté encima de otros elementos */
+            z-index: 99;
         }
         .logo-text {
             font-size: 16px;
@@ -145,78 +145,78 @@
 </head>
 <body>
 <div class="slide-container">
-<div class="top-bar"></div>
-<div class="content">
-<div class="left-sidebar">
-<div class="sidebar-icon">
-<i class="fas fa-sync-alt fa-lg"></i>
-</div>
-<div class="sidebar-icon">
-<i class="fas fa-code-branch fa-lg"></i>
-</div>
-<div class="sidebar-icon">
-<i class="fas fa-rocket fa-lg"></i>
-</div>
-<div class="sidebar-icon">
-<i class="fas fa-tachometer-alt fa-lg"></i>
-</div>
-</div>
-<div class="main-content">
-<div class="title-container">
-<h1 class="title">Beneficios de la Metodología Ágil/DevOps y la Automatización</h1>
-</div>
-<div class="benefits-grid">
-<div class="benefit-card">
-<div class="benefit-icon">
-<i class="fas fa-sync-alt fa-2x"></i>
-</div>
-<div class="benefit-title">Integración Continua</div>
-<div class="benefit-description">
-El testing deja de ser una fase separada para convertirse en una actividad constante y paralela al desarrollo, integrándose en cada etapa del proceso.
-</div>
-</div>
-<div class="benefit-card">
-<div class="benefit-icon">
-<i class="fas fa-search fa-2x"></i>
-</div>
-<div class="benefit-title">Detección Temprana</div>
-<div class="benefit-description">
-Los errores se identifican y corrigen de inmediato, reduciendo significativamente el costo y el esfuerzo de depuración en etapas avanzadas.
-</div>
-</div>
-<div class="benefit-card">
-<div class="benefit-icon">
-<i class="fas fa-shield-alt fa-2x"></i>
-</div>
-<div class="benefit-title">Confianza</div>
-<div class="benefit-description">
-La automatización de pruebas de regresión asegura que los cambios recientes no rompan funcionalidades existentes, permitiendo liberar código con mayor frecuencia y seguridad.
-</div>
-</div>
-<div class="benefit-card">
-<div class="benefit-icon">
-<i class="fas fa-brain fa-2x"></i>
-</div>
-<div class="benefit-title">Enfoque Estratégico</div>
-<div class="benefit-description">
-El equipo de QA puede dedicar su tiempo a pruebas más complejas y exploratorias, que requieren intuición humana, en lugar de tareas repetitivas.
-</div>
-</div>
-</div>
-<div class="cicd-diagram">
-<svg viewbox="0 0 200 200">
-<circle cx="100" cy="100" fill="none" r="80" stroke="#4299e1" stroke-width="3"></circle>
-<path d="M100,20 A80,80 0 0,1 180,100" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
-<path d="M180,100 A80,80 0 0,1 100,180" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
-<path d="M100,180 A80,80 0 0,1 20,100" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
-<path d="M20,100 A80,80 0 0,1 100,20" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="footer">
-<a href="IA_Testing_p05.html"><div class="logo-text">Vinculadas &amp; Seguros</div></a>
-</div>
+    <div class="top-bar"></div>
+    <div class="content">
+        <div class="left-sidebar">
+            <div class="sidebar-icon">
+                <i class="fas fa-sync-alt fa-lg"></i>
+            </div>
+            <div class="sidebar-icon">
+                <i class="fas fa-code-branch fa-lg"></i>
+            </div>
+            <div class="sidebar-icon">
+                <i class="fas fa-rocket fa-lg"></i>
+            </div>
+            <div class="sidebar-icon">
+                <i class="fas fa-tachometer-alt fa-lg"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="title-container">
+                <h1 class="title">Beneficios de la Metodología Ágil/DevOps y la Automatización</h1>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sync-alt fa-2x"></i>
+                    </div>
+                    <div class="benefit-title">Integración Continua</div>
+                    <div class="benefit-description">
+                        El testing deja de ser una fase separada para convertirse en una actividad constante y paralela al desarrollo, integrándose en cada etapa del proceso.
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-search fa-2x"></i>
+                    </div>
+                    <div class="benefit-title">Detección Temprana</div>
+                    <div class="benefit-description">
+                        Los errores se identifican y corrigen de inmediato, reduciendo significativamente el costo y el esfuerzo de depuración en etapas avanzadas.
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                    </div>
+                    <div class="benefit-title">Confianza</div>
+                    <div class="benefit-description">
+                        La automatización de pruebas de regresión asegura que los cambios recientes no rompan funcionalidades existentes, permitiendo liberar código con mayor frecuencia y seguridad.
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain fa-2x"></i>
+                    </div>
+                    <div class="benefit-title">Enfoque Estratégico</div>
+                    <div class="benefit-description">
+                        El equipo de QA puede dedicar su tiempo a pruebas más complejas y exploratorias, que requieren intuición humana, en lugar de tareas repetitivas.
+                    </div>
+                </div>
+            </div>
+            <div class="cicd-diagram">
+                <svg viewbox="0 0 200 200">
+                    <circle cx="100" cy="100" fill="none" r="80" stroke="#4299e1" stroke-width="3"></circle>
+                    <path d="M100,20 A80,80 0 0,1 180,100" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
+                    <path d="M180,100 A80,80 0 0,1 100,180" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
+                    <path d="M100,180 A80,80 0 0,1 20,100" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
+                    <path d="M20,100 A80,80 0 0,1 100,20" fill="none" stroke="#4299e1" stroke-dasharray="5,5" stroke-width="3"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="IA_Testing_p05.html"><div class="logo-text">Vinculadas &amp; Seguros</div></a>
+    </div>
 </div>
 </body>
 </html>
