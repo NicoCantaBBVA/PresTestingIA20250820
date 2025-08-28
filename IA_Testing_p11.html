@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusión: Un Futuro Eficiente</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #81e6d9;
+            transition: all 0.3s ease;
+        }
+        .sidebar-icon:hover {
+            background-color: #4299e1;
+            transform: scale(1.05);
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 44px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #4299e1;
+        }
+        .content-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .feature-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .feature-card {
+            width: 30%;
+            background-color: rgba(26, 54, 93, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: #4299e1;
+            font-size: 30px;
+        }
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #a3bffa;
+            margin-bottom: 10px;
+        }
+        .feature-text {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #4299e1;
+        }
+        .inspiration-quote {
+            font-size: 24px;
+            font-style: italic;
+            color: #a3bffa;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.4;
+        }
+        .chart-container {
+            width: 350px;
+            height: 200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="top-bar"></div>
+<div class="content">
+<div class="left-sidebar">
+<div class="sidebar-icon">
+<i class="fas fa-robot fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-chart-line fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-rocket fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-lightbulb fa-lg"></i>
+</div>
+</div>
+<div class="main-content">
+<div class="title-container">
+<h1 class="title">Conclusión: Un Futuro Eficiente</h1>
+</div>
+<div class="content-card">
+<p class="inspiration-quote">"La automatización no se trata de reemplazar al humano, sino de potenciar su capacidad para crear valor"</p>
+<div class="chart-container">
+<canvas id="efficiencyChart"></canvas>
+</div>
+</div>
+<div class="feature-cards">
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-money-bill-wave"></i>
+</div>
+<h3 class="feature-title">Inversión Estratégica</h3>
+<p class="feature-text">La automatización no es un gasto, es una inversión que genera retorno a mediano y largo plazo.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-tachometer-alt"></i>
+</div>
+<h3 class="feature-title">Eficiencia &amp; Calidad</h3>
+<p class="feature-text">Mejora la calidad del producto mientras aumenta la velocidad de entrega a los clientes.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-brain"></i>
+</div>
+<h3 class="feature-title">Valor Humano</h3>
+<p class="feature-text">El equipo QA se enfoca en tareas más complejas y creativas, aumentando la competitividad.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="logo-area">
+<a href="index.html"><div class="logo-text">Vinculadas &amp; Seguros</div></a>
+</div>
+</div>
+<script>
+        const ctx = document.getElementById('efficiencyChart').getContext('2d');
+        const efficiencyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Manual', 'Semi-auto', 'Agile/DevOps', 'Full Auto'],
+                datasets: [{
+                    label: 'Eficiencia',
+                    data: [20, 40, 70, 95],
+                    borderColor: '#4299e1',
+                    backgroundColor: 'rgba(66, 153, 225, 0.2)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: '#a3bffa'
+                        },
+                        grid: {
+                            color: 'rgba(163, 191, 250, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#a3bffa'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>El Modelo Tradicional - Principales Desventajas</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+            margin: 0 auto;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #f56565;
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            line-height: 1.2;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #f56565;
+        }
+        .disadvantages-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .disadvantage-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .disadvantage-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #2d4a7a;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #f56565;
+        }
+        .disadvantage-content {
+            flex: 1;
+        }
+        .disadvantage-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #f56565;
+            margin-bottom: 12px;
+        }
+        .disadvantage-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #f56565;
+        }
+        .warning-diagram {
+            position: absolute;
+            right: -140px;
+            bottom: -140px;
+            width: 400px;
+            height: 400px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="top-bar"></div>
+<div class="content">
+<div class="left-sidebar">
+<div class="sidebar-icon">
+<i class="fas fa-exclamation-triangle fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-clock fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-hourglass-half fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-times-circle fa-lg"></i>
+</div>
+</div>
+<div class="main-content">
+<div class="title-container">
+<h1 class="title">Principales Desventajas del Modelo Tradicional</h1>
+</div>
+<div class="disadvantages-grid">
+<div class="disadvantage-card">
+<div class="disadvantage-icon">
+<i class="fas fa-exclamation-triangle fa-2x"></i>
+</div>
+<div class="disadvantage-content">
+<div class="disadvantage-title">Detección Tardía de Errores</div>
+<div class="disadvantage-description">
+Los bugs se encuentran al final del ciclo de desarrollo, cuando son más costosos y complejos de corregir. Esto genera un impacto significativo en tiempos y recursos del proyecto, ya que requiere volver a etapas anteriores del desarrollo.
+</div>
+</div>
+</div>
+<div class="disadvantage-card">
+<div class="disadvantage-icon">
+<i class="fas fa-clock fa-2x"></i>
+</div>
+<div class="disadvantage-content">
+<div class="disadvantage-title">Tiempo de Espera</div>
+<div class="disadvantage-description">
+Los desarrolladores pueden quedar inactivos mientras se realizan las pruebas, y viceversa. Esto crea cuellos de botella que reducen la eficiencia general del equipo y aumentan los tiempos de entrega del proyecto.
+</div>
+</div>
+</div>
+<div class="disadvantage-card">
+<div class="disadvantage-icon">
+<i class="fas fa-hourglass-half fa-2x"></i>
+</div>
+<div class="disadvantage-content">
+<div class="disadvantage-title">Procesos Lentos</div>
+<div class="disadvantage-description">
+Las pruebas de regresión manual consumen una enorme cantidad de tiempo y recursos. Cada ciclo de testing requiere intervención humana repetitiva, limitando la velocidad de desarrollo y aumentando la posibilidad de errores humanos.
+</div>
+</div>
+</div>
+<div class="warning-diagram">
+<svg viewBox="0 0 200 200">
+<polygon points="100,20 180,160 20,160" fill="none" stroke="#f56565" stroke-width="3" stroke-dasharray="5,5"/>
+<circle cx="100" cy="140" r="3" fill="#f56565"/>
+<text x="100" y="90" text-anchor="middle" fill="#f56565" font-size="24" font-weight="bold">!</text>
+</svg>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="IA_Testing_p04.html"><div class="logo-text">Vinculadas &amp; Seguros -></div></a>
+</div>
+</div>
+</body>
+</html>

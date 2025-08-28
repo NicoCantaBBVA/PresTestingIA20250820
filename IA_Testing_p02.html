@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>La Relaci髇 entre Desarrollo y Pruebas</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>La Relaci贸n entre Desarrollo y Pruebas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
         body {
             margin: 0;
             padding: 0;
@@ -108,8 +107,7 @@
             height: 300px;
             position: absolute;
             right: 80px;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 320px; /* Mantener la posici贸n deseada */
         }
         .footer {
             position: absolute;
@@ -122,29 +120,12 @@
             align-items: center;
             justify-content: flex-end;
             padding: 0 40px;
+            z-index: 99;
         }
         .logo-text {
             font-size: 16px;
             font-weight: 500;
             color: #a3bffa;
-        }
-        .highlight-box {
-            position: absolute;
-            right: 100px;
-            top: 170px;
-            text-align: center;
-            z-index: 20;
-        }
-        .highlight-value {
-            font-size: 72px;
-            font-weight: 700;
-            color: #4299e1;
-            line-height: 1;
-        }
-        .highlight-label {
-            font-size: 18px;
-            color: #a3bffa;
-            margin-top: 5px;
         }
         .top-bar {
             position: absolute;
@@ -158,82 +139,117 @@
 </head>
 <body>
 <div class="slide-container">
-<div class="top-bar"></div>
-<div class="content">
-<div class="left-sidebar">
-<div class="sidebar-icon">
-<i class="fas fa-code fa-lg"></i>
-</div>
-<div class="sidebar-icon">
-<i class="fas fa-bug fa-lg"></i>
-</div>
-<div class="sidebar-icon">
-<i class="fas fa-cogs fa-lg"></i>
-</div>
-<div class="sidebar-icon">
-<i class="fas fa-clock fa-lg"></i>
-</div>
-</div>
-<div class="main-content">
-<div class="title-container">
-<h1 class="title">La Relaci髇 entre Desarrollo y Pruebas</h1>
-</div>
-<div class="content-card">
-<ul class="content-list">
-<li><strong class="text-blue-300">El desaf韔:</strong> La estimaci髇 de proyectos de software a menudo subestima el tiempo y esfuerzo dedicado a las pruebas.</li>
-<li><strong class="text-blue-300">La m閠rica clave:</strong> Diversos estudios y la experiencia de la industria sugieren que el esfuerzo de testing y QA representa aproximadamente el 25% del tiempo total de un proyecto.</li>
-<li><strong class="text-blue-300">La pregunta:</strong> 緾髆o podemos optimizar este 25% sin comprometer la calidad?</li>
-</ul>
-</div>
-<div class="chart-container">
-<canvas id="timeChart"></canvas>
-</div>
-<div class="highlight-box">
-<div class="highlight-value">25%</div>
-<div class="highlight-label">del tiempo total</div>
-</div>
-</div>
-</div>
-<div class="logo-area">
-<a href="IA_Testing_p03.html"><h3 class="text-xl font-semibold text-white">Vinculadas &amp; Seguros</h3></a>
-</div>
-</div>
+    <div class="top-bar"></div>
+    <div class="content">
+        <div class="left-sidebar">
+            <div class="sidebar-icon">
+                <i class="fas fa-code fa-lg"></i>
+            </div>
+            <div class="sidebar-icon">
+                <i class="fas fa-bug fa-lg"></i>
+            </div>
+            <div class="sidebar-icon">
+                <i class="fas fa-cogs fa-lg"></i>
+            </div>
+            <div class="sidebar-icon">
+                <i class="fas fa-clock fa-lg"></i>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="title-container">
+                <h1 class="title">La Relaci贸n entre Desarrollo y Pruebas</h1>
+            </div>
+            <div class="content-card">
+                <ul class="content-list">
+                    <li><strong class="text-blue-300">El desaf铆o:</strong> La estimaci贸n de proyectos de software a menudo subestima el tiempo y esfuerzo dedicado a las pruebas.</li>
+                    <li><strong class="text-blue-300">La m茅trica clave:</strong> Diversos estudios y la experiencia de la industria sugieren que el esfuerzo de testing y QA representa aproximadamente el 25% del tiempo total de un proyecto.</li>
+                    <li><strong class="text-blue-300">La pregunta:</strong> 驴C贸mo podemos optimizar este 25% sin comprometer la calidad?</li>
+                </ul>
+            </div>
+            <div class="chart-container">
+                <canvas id="timeChart"></canvas>
+            </div>
+            </div>
+    </div>
+    <div class="footer">
+        <a href="IA_Testing_p03.html">
+            <div class="logo-text">Vinculadas &amp; Seguros</div>
+        </a>
+    </div>
 </div>
 <script>
-        const ctx = document.getElementById('timeChart').getContext('2d');
-        const timeChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Desarrollo', 'Testing'],
-                datasets: [{
-                    data: [75, 25],
-                    backgroundColor: [
-                        '#1a365d',
-                        '#4299e1'
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '70%',
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'bottom',
-                        labels: {
-                            color: '#a3bffa',
-                            font: {
-                                family: 'Montserrat',
-                                size: 14
-                            }
+    // Plugin para dibujar texto en el centro del gr谩fico de dona
+    const centerTextPlugin = {
+        id: 'centerText',
+        beforeDraw: (chart) => {
+            const { ctx, width, height } = chart;
+            ctx.restore();
+
+            const fontSizeValue = (height / 114).toFixed(2); // Ajusta el tama帽o de la fuente para el valor
+            ctx.font = `bold ${fontSizeValue}em Montserrat`;
+            ctx.textBaseline = 'middle';
+
+            const textValue = '25%';
+            const textValueMetrics = ctx.measureText(textValue);
+            const textValueX = (width - textValueMetrics.width) / 2;
+            const textValueY = height / 2 - 15; // Ajusta la posici贸n vertical del valor
+
+            ctx.fillStyle = '#4299e1'; // Color del valor
+            ctx.fillText(textValue, textValueX, textValueY);
+
+            const fontSizeLabel = (height / 300).toFixed(2); // Ajusta el tama帽o de la fuente para la etiqueta
+            ctx.font = `${fontSizeLabel}em Montserrat`;
+            
+            const textLabel = 'del tiempo total';
+            const textLabelMetrics = ctx.measureText(textLabel);
+            const textLabelX = (width - textLabelMetrics.width) / 2;
+            const textLabelY = height / 2 + 15; // Ajusta la posici贸n vertical de la etiqueta
+
+            ctx.fillStyle = '#a3bffa'; // Color de la etiqueta
+            ctx.fillText(textLabel, textLabelX, textLabelY);
+
+            ctx.save();
+        }
+    };
+
+    Chart.register(centerTextPlugin); // Registra el plugin
+
+    const ctx = document.getElementById('timeChart').getContext('2d');
+    const timeChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Desarrollo', 'Testing'],
+            datasets: [{
+                data: [75, 25],
+                backgroundColor: [
+                    '#1a365d',
+                    '#4299e1'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        color: '#a3bffa',
+                        font: {
+                            family: 'Montserrat',
+                            size: 14
                         }
                     }
-                }
+                },
+                // Aseg煤rate de que el plugin est茅 activado
+                centerText: true 
             }
-        });
-    </script>
+        },
+        plugins: [centerTextPlugin] // Aplica el plugin aqu铆
+    });
+</script>
 </body>
 </html>
-

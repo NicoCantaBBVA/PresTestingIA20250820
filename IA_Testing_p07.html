@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Regresión: Manual vs Automatizada</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            /* Se elimina 'overflow: hidden' para permitir la barra de desplazamiento */
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+            /* Se elimina 'overflow: hidden' para permitir el desplazamiento */
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #81e6d9;
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 44px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #4299e1;
+        }
+        .comparison-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .comparison-column {
+            width: 48%;
+            position: relative;
+        }
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0;
+        }
+        .manual-header {
+            background-color: #2a4365;
+        }
+        .auto-header {
+            background-color: #2b6cb0;
+        }
+        .header-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        .header-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .comparison-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        .comparison-card:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+        }
+        .manual-card:after {
+            background-color: #2a4365;
+        }
+        .auto-card:after {
+            background-color: #2b6cb0;
+        }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .card-content {
+            flex: 1;
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #a3bffa;
+        }
+        .card-text {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .vs-divider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: #4299e1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 20;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #4299e1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="top-bar"></div>
+<div class="content">
+<div class="left-sidebar">
+<div class="sidebar-icon">
+<i class="fas fa-code fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-bug fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-cogs fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-clock fa-lg"></i>
+</div>
+</div>
+<div class="main-content">
+<div class="title-container">
+<h1 class="title">Regresión: Manual vs Automatizada</h1>
+</div>
+<div class="comparison-container">
+<div class="comparison-column">
+<div class="comparison-header manual-header">
+<div class="header-icon">
+<i class="fas fa-user fa-2x"></i>
+</div>
+<div class="header-title">Pruebas Manuales</div>
+</div>
+<div class="comparison-card manual-card">
+<div class="card-icon">
+<i class="fas fa-clock"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Tiempo de ejecución</div>
+<div class="card-text">Lento. Requiere esfuerzo humano repetitivo. Una ejecución completa puede tomar días o semanas.</div>
+</div>
+</div>
+<div class="comparison-card manual-card">
+<div class="card-icon">
+<i class="fas fa-euro-sign"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Costo</div>
+<div class="card-text">Alto en el largo plazo, debido a las horas de trabajo continuas.</div>
+</div>
+</div>
+<div class="comparison-card manual-card">
+<div class="card-icon">
+<i class="fas fa-calendar-alt"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Frecuencia</div>
+<div class="card-text">Se realizan con poca frecuencia (ej. una vez por sprint), debido al alto costo.</div>
+</div>
+</div>
+<div class="comparison-card manual-card">
+<div class="card-icon">
+<i class="fas fa-bullseye"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Precisión</div>
+<div class="card-text">Susceptible a errores humanos, omisiones y fatiga.</div>
+</div>
+</div>
+</div>
+<div class="vs-divider">VS</div>
+<div class="comparison-column">
+<div class="comparison-header auto-header">
+<div class="header-icon">
+<i class="fas fa-robot fa-2x"></i>
+</div>
+<div class="header-title">Pruebas Automatizadas</div>
+</div>
+<div class="comparison-card auto-card">
+<div class="card-icon">
+<i class="fas fa-tachometer-alt"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Tiempo de ejecución</div>
+<div class="card-text">Rápido. Se ejecutan en minutos u horas, 24/7.</div>
+</div>
+</div>
+<div class="comparison-card auto-card">
+<div class="card-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Costo</div>
+<div class="card-text">Bajo en el largo plazo. La inversión inicial se recupera con las ejecuciones repetitivas.</div>
+</div>
+</div>
+<div class="comparison-card auto-card">
+<div class="card-icon">
+<i class="fas fa-sync-alt"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Frecuencia</div>
+<div class="card-text">Se ejecutan en cada cambio de código, asegurando la estabilidad continua del sistema.</div>
+</div>
+</div>
+<div class="comparison-card auto-card">
+<div class="card-icon">
+<i class="fas fa-check-double"></i>
+</div>
+<div class="card-content">
+<div class="card-title">Precisión</div>
+<div class="card-text">Consistente y precisa. Las pruebas se ejecutan siempre de la misma manera.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="IA_Testing_p08.html"><div class="logo-text">Vinculadas &amp; Seguros</div></a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Caso de Personas Jurídicas – Con Automatización</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #81e6d9;
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 20px; /* Reducido para achicar el espacio vertical */
+        }
+        .title {
+            font-size: 38px; /* Reducido para que el texto entre en una línea */
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #4299e1;
+        }
+        .content-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 15px; /* Reducido el padding para achicar la altura */
+            margin-bottom: 15px; /* Reducido el margen para achicar la altura */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .content-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .content-list li {
+            margin-bottom: 10px; /* Reducido el margen */
+            position: relative;
+            padding-left: 20px; /* Reducido el padding */
+            font-size: 16px; /* Reducido el tamaño de fuente */
+            line-height: 1.5;
+        }
+        .content-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px; /* Ajustado el posicionamiento */
+            width: 8px; /* Reducido el tamaño */
+            height: 8px;
+            background-color: #4299e1;
+            border-radius: 50%;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #4299e1;
+        }
+        .metrics-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px; /* Reducido el margen */
+        }
+        .metric-box {
+            background-color: rgba(66, 153, 225, 0.15);
+            border-radius: 10px;
+            padding: 15px; /* Reducido el padding */
+            text-align: center;
+            width: 48%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #4299e1;
+        }
+        .metric-value {
+            font-size: 42px; /* Reducido el tamaño de fuente */
+            font-weight: 700;
+            color: #4299e1;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 16px; /* Reducido el tamaño de fuente */
+            color: #a3bffa;
+        }
+        .chart-container {
+            width: 100%;
+            height: 180px; /* Reducida la altura del gráfico */
+            margin-top: 15px; /* Reducido el margen */
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="top-bar"></div>
+<div class="content">
+<div class="left-sidebar">
+<div class="sidebar-icon">
+<i class="fas fa-robot fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-clock fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-chart-line fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-users fa-lg"></i>
+</div>
+</div>
+<div class="main-content">
+<div class="title-container">
+<h1 class="title">Caso de Personas Jurídicas – Con Automatización</h1>
+</div>
+<div class="content-card">
+<ul class="content-list">
+<li><strong class="text-blue-300">Transformación:</strong> Automatización del 80% de las pruebas de regresión.</li>
+<li><strong class="text-blue-300">Eficiencia:</strong> Reducción del tiempo de ejecución en un 50% o más.</li>
+<li><strong class="text-blue-300">Impacto:</strong> Entrega del proyecto casi un mes antes, liberando al equipo para otros proyectos.</li>
+</ul>
+<div class="metrics-container">
+<div class="metric-box">
+<div class="metric-value">967,5h</div>
+<div class="metric-label">Ahorro estimado</div>
+</div>
+<div class="metric-box">
+<div class="metric-value">20 días</div>
+<div class="metric-label">Laborales reducidos</div>
+</div>
+</div>
+<div class="chart-container">
+<canvas id="savingsChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="IA_Testing_p07.html"><div class="logo-text">Vinculadas &amp; Seguros -></div></a>
+</div>
+</div>
+<script>
+        const ctx = document.getElementById('savingsChart').getContext('2d');
+        const savingsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Sin Automatización', 'Con Automatización'],
+                datasets: [{
+                    label: 'Horas de Testing',
+                    data: [1935, 967.5],
+                    backgroundColor: [
+                        '#1a365d',
+                        '#4299e1'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#a3bffa',
+                            font: {
+                                family: 'Montserrat'
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#a3bffa',
+                            font: {
+                                family: 'Montserrat'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.y + ' horas';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

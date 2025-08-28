@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Caso Real: BBVA - COMEX</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #81e6d9;
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 44px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #4299e1;
+        }
+        .content-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .metrics-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .metric-card {
+            background-color: rgba(26, 54, 93, 0.8);
+            border-radius: 10px;
+            padding: 15px 25px;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .metric-value {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+        .metric-label {
+            font-size: 16px;
+            color: #a3bffa;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #4299e1;
+        }
+        .progress-bar {
+            height: 6px;
+            width: 100%;
+            background-color: #1a365d;
+            margin-top: 10px;
+            border-radius: 4px;
+            position: relative;
+        }
+        .progress-fill-lead {
+            height: 100%;
+            width: 16%;
+            background-color: #4299e1;
+            border-radius: 4px;
+        }
+        .progress-fill-cycle {
+            height: 100%;
+            width: 18%;
+            background-color: #38b2ac;
+            border-radius: 4px;
+        }
+        .progress-fill-testing {
+            height: 100%;
+            width: 34%;
+            background-color: #805ad5;
+            border-radius: 4px;
+        }
+        .achievement-box {
+            margin-top: 30px;
+            text-align: center;
+            padding: 10px 15px; /* Reducido el padding para dar más espacio horizontal */
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .achievement-text {
+            font-size: 16px; /* Reducido el tamaño de fuente para que el texto quepa */
+            line-height: 1.5;
+            white-space: nowrap; /* Fuerza que el texto se muestre en una sola línea */
+        }
+        .highlight {
+            color: #4299e1;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="top-bar"></div>
+<div class="content">
+<div class="left-sidebar">
+<div class="sidebar-icon">
+<i class="fas fa-chart-line fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-tachometer-alt fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-robot fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-clock fa-lg"></i>
+</div>
+</div>
+<div class="main-content">
+<div class="title-container">
+<h1 class="title">Caso Real: BBVA - COMEX</h1>
+</div>
+<div class="metrics-container">
+<div class="metric-card">
+<div class="metric-value" style="color: #4299e1;">16%</div>
+<div class="metric-label">Reducción del Lead Time</div>
+<div class="progress-bar">
+<div class="progress-fill-lead"></div>
+</div>
+</div>
+<div class="metric-card">
+<div class="metric-value" style="color: #38b2ac;">18%</div>
+<div class="metric-label">Reducción del Cycle Time</div>
+<div class="progress-bar">
+<div class="progress-fill-cycle"></div>
+</div>
+</div>
+<div class="metric-card">
+<div class="metric-value" style="color: #805ad5;">34%</div>
+<div class="metric-label">Reducción del tiempo de Testing</div>
+<div class="progress-bar">
+<div class="progress-fill-testing"></div>
+</div>
+</div>
+</div>
+<div class="achievement-box">
+<p class="achievement-text">Esta reducción se logró <span class="highlight">automatizando el 50% de los servicios</span> de la fábrica con la dedicación de <span class="highlight">1 QAA durante 2 Qs</span></p>
+</div>
+<div style="text-align: center; margin-top: 30px;">
+<canvas height="200" id="resultsChart" width="600"></canvas>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="IA_Testing_p09.html"><div class="logo-text">Vinculadas &amp; Seguros</div></a>
+</div>
+</div>
+<script>
+        const ctx = document.getElementById('resultsChart').getContext('2d');
+        const resultsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Lead Time', 'Cycle Time', 'Tiempo de Testing'],
+                datasets: [{
+                    label: 'Porcentaje de Reducción',
+                    data: [16, 18, 34],
+                    backgroundColor: [
+                        '#4299e1',
+                        '#38b2ac',
+                        '#805ad5'
+                    ],
+                    borderWidth: 0,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 40,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#a3bffa'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#a3bffa'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

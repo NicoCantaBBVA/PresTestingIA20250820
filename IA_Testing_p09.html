@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Regresión de los Tiers</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #81e6d9;
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 44px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #4299e1;
+        }
+        .content-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .content-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .content-list li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 30px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .content-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background-color: #4299e1;
+            border-radius: 50%;
+        }
+        .chart-container {
+            width: 400px;
+            height: 260px;
+            margin-top: 20px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .highlight-box {
+            background-color: rgba(66, 153, 225, 0.2);
+            border-left: 4px solid #4299e1;
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 30px;
+        }
+        .highlight-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #4299e1;
+        }
+        .quarter-box {
+            display: flex;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        .quarter-card {
+            flex: 1;
+            background-color: rgba(26, 54, 93, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+
+        }
+        .quarter-card h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #81e6d9;
+        }
+        .quarter-card p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .quarter-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            opacity: 0.5;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #4299e1;
+        }
+        .flex-container {
+            display: flex;
+            gap: 30px;
+        }
+        .left-section {
+            flex: 3;
+        }
+        .right-section {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="top-bar"></div>
+<div class="content">
+<div class="left-sidebar">
+<div class="sidebar-icon">
+<i class="fas fa-layer-group fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-tasks fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-calendar-alt fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-hourglass-half fa-lg"></i>
+</div>
+</div>
+<div class="main-content">
+<div class="title-container">
+<h1 class="title">Regresión de los Tiers</h1>
+</div>
+<div class="flex-container">
+<div class="left-section">
+<div class="quarter-box">
+<div class="quarter-card">
+<h3>Q3</h3>
+<div class="quarter-icon"><i class="fas fa-rocket"></i></div>
+<p><strong class="text-blue-300">Requerimiento:</strong> Regresión en cada deployment a PROD</p>
+<p><strong class="text-blue-300">Alcance:</strong> Pruebas básicas de regresión</p>
+</div>
+<div class="quarter-card">
+<h3>Q4</h3>
+<div class="quarter-icon"><i class="fas fa-cubes"></i></div>
+<p><strong class="text-blue-300">Requerimiento:</strong> Obligatorio incluir los 5 Tier1 en cada regresión</p>
+<p><strong class="text-blue-300">Alcance:</strong> Pruebas completas de todos los Tier1</p>
+</div>
+</div>
+<div class="content-card" style="margin-top: 30px;">
+<ul class="content-list">
+<li><strong class="text-blue-300">Tiempo promedio:</strong> 1 Analista/QA necesita en promedio 3hs para probar un Tier1</li>
+<li><strong class="text-blue-300">Frecuencia:</strong> Se estiman aproximadamente 20 deployments mensuales</li>
+<li><strong class="text-blue-300">Impacto en recursos:</strong> A partir de Q4 se necesitarán recursos adicionales para cumplir con los nuevos requerimientos</li>
+</ul>
+</div>
+</div>
+<div class="right-section">
+<div class="chart-container">
+<canvas id="hoursChart"></canvas>
+</div>
+<div class="highlight-box">
+<div class="text-sm text-blue-300 mb-1">Estimación mensual Q4</div>
+<div class="highlight-number">300 horas</div>
+<div class="text-sm mt-2">5 Tier1 × 3h × 20 deployments</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="IA_Testing_p10.html"><div class="logo-text">Vinculadas &amp; Seguros</div></a>
+</div>
+</div>
+<script>
+        const ctx = document.getElementById('hoursChart').getContext('2d');
+        const hoursChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Q3', 'Q4'],
+                datasets: [{
+                    label: 'Horas mensuales de testing',
+                    data: [60, 300],
+                    backgroundColor: [
+                        'rgba(129, 230, 217, 0.7)',
+                        'rgba(66, 153, 225, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgb(129, 230, 217)',
+                        'rgb(66, 153, 225)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#a3bffa'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#a3bffa'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#a3bffa',
+                            font: {
+                                family: 'Montserrat'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

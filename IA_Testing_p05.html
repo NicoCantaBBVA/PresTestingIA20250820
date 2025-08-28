@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Caso de Personas Jurídicas – Estado Actual</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #81e6d9;
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 20px; /* Reducido para achicar el espacio */
+        }
+        .title {
+            font-size: 44px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #4299e1;
+        }
+        .content-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 15px; /* Reducido el padding */
+            margin-bottom: 10px; /* Reducido el margen */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #4299e1;
+        }
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px; /* Reducido el margen */
+        }
+        .stat-box {
+            width: 220px;
+            height: 180px; /* Reducida la altura para achicar el componente */
+            background-color: rgba(26, 54, 93, 0.8);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px; /* Reducido el padding */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+        .stat-icon {
+            width: 50px; /* Ajustado el tamaño del ícono */
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px; /* Reducido el margen */
+            color: #81e6d9;
+        }
+        .stat-value {
+            font-size: 36px; /* Reducido el tamaño de fuente */
+            font-weight: 700;
+            color: #4299e1;
+            margin: 5px 0;
+        }
+        .stat-label {
+            font-size: 14px; /* Reducido el tamaño de fuente */
+            color: #a3bffa;
+            text-align: center;
+        }
+        .chart-container {
+            width: 380px;
+            height: 280px; /* Reducida la altura del gráfico */
+            margin-top: -20px; /* Reducido el margen superior */
+            margin-left: 30px;
+        }
+        .effort-data {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="top-bar"></div>
+<div class="content">
+<div class="left-sidebar">
+<div class="sidebar-icon">
+<i class="fas fa-user-tie fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-project-diagram fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-calendar-alt fa-lg"></i>
+</div>
+<div class="sidebar-icon">
+<i class="fas fa-hourglass-half fa-lg"></i>
+</div>
+</div>
+<div class="main-content">
+<div class="title-container">
+<h1 class="title">Caso de Personas Jurídicas – Estado Actual</h1>
+</div>
+<div class="content-card">
+<div class="text-lg mb-4">
+<p><strong class="text-blue-300">Descripción del proyecto:</strong> Implementación sin automatización de pruebas.</p>
+</div>
+<div class="stats-container">
+<div class="stat-box">
+<div class="stat-icon">
+<i class="fas fa-laptop-code fa-lg"></i>
+</div>
+<div class="stat-value">6</div>
+<div class="stat-label">Developers</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">
+<i class="fas fa-clipboard-check fa-lg"></i>
+</div>
+<div class="stat-value">3</div>
+<div class="stat-label">Analistas</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">
+<i class="fas fa-calendar-alt fa-lg"></i>
+</div>
+<div class="stat-value">6</div>
+<div class="stat-label">Meses de duración</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">
+<i class="fas fa-clock fa-lg"></i>
+</div>
+<div class="stat-value">7</div>
+<div class="stat-label">Horas/día promedio</div>
+</div>
+</div>
+</div>
+<div class="flex mt-6">
+<div class="content-card flex-1">
+<h2 class="text-2xl font-semibold mb-4 text-blue-300">Esfuerzo Total del Proyecto</h2>
+<div class="effort-data">
+<div>
+<p class="text-lg mb-3"><i class="fas fa-calculator mr-2"></i> Esfuerzo aproximado: <strong class="text-xl">7,740 horas</strong></p>
+<p class="text-lg mb-3"><i class="fas fa-bug mr-2"></i> Esfuerzo de testing (25%): <strong class="text-xl text-blue-400">1,935 horas</strong></p>
+<p class="text-lg"><i class="fas fa-exclamation-circle mr-2"></i> Todo realizado con pruebas manuales</p>
+</div>
+<div class="chart-container">
+<canvas id="effortChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="IA_Testing_p06.html"><div class="logo-text">Vinculadas &amp; Seguros -></div></a>
+</div>
+</div>
+<script>
+        const ctx = document.getElementById('effortChart').getContext('2d');
+        const effortChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Desarrollo y otros (75%)', 'Testing manual (25%)'],
+                datasets: [{
+                    data: [5805, 1935],
+                    backgroundColor: [
+                        '#1a365d',
+                        '#4299e1'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            color: '#a3bffa',
+                            font: {
+                                family: 'Montserrat',
+                                size: 14
+                            },
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.raw + ' horas';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

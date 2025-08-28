@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>El Modelo Tradicional - Desventajas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: #0f2747;
+            color: white;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 0;
+        }
+        .left-sidebar {
+            width: 120px;
+            background-color: #1a365d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .sidebar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2d4a7a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #f56565;
+        }
+        .main-content {
+            flex: 1;
+            padding: 60px 40px 40px 60px;
+            position: relative;
+        }
+        .title-container {
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 44px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+        .title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #4299e1;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #a3bffa;
+            margin-top: 20px;
+            font-weight: 400;
+        }
+        .disadvantages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .disadvantage-card {
+            background-color: rgba(26, 54, 93, 0.6);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: flex-start;
+            border-left: 4px solid #f56565;
+        }
+        .disadvantage-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(245, 101, 101, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: #f56565;
+            flex-shrink: 0;
+        }
+        .disadvantage-content {
+            flex: 1;
+        }
+        .disadvantage-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #f56565;
+            margin-bottom: 10px;
+        }
+        .disadvantage-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-color: #1a365d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            z-index: 99;
+        }
+        .logo-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #a3bffa;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: #4299e1;
+        }
+        .warning-diagram {
+            position: absolute;
+            right: -120px;
+            bottom: -120px;
+            width: 350px;
+            height: 350px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="top-bar"></div>
+        <div class="content">
+            <div class="left-sidebar">
+                <div class="sidebar-icon">
+                    <i class="fas fa-exclamation-triangle fa-lg"></i>
+                </div>
+                <div class="sidebar-icon">
+                    <i class="fas fa-clock fa-lg"></i>
+                </div>
+                <div class="sidebar-icon">
+                    <i class="fas fa-bug fa-lg"></i>
+                </div>
+                <div class="sidebar-icon">
+                    <i class="fas fa-hourglass-half fa-lg"></i>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="title-container">
+                    <h1 class="title">El Modelo Tradicional (Manual)</h1>
+                    <div class="subtitle">Principales Desventajas del Flujo Secuencial</div>
+                </div>
+                
+                <div class="disadvantages-grid">
+                    <div class="disadvantage-card">
+                        <div class="disadvantage-icon">
+                            <i class="fas fa-search fa-2x"></i>
+                        </div>
+                        <div class="disadvantage-content">
+                            <div class="disadvantage-title">Detección Tardía de Errores</div>
+                            <div class="disadvantage-description">
+                                Los bugs se encuentran al final del ciclo de desarrollo, cuando son más costosos y complejos de corregir. Esto genera un impacto significativo en tiempos y recursos del proyecto.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="disadvantage-card">
+                        <div class="disadvantage-icon">
+                            <i class="fas fa-hourglass-half fa-2x"></i>
+                        </div>
+                        <div class="disadvantage-content">
+                            <div class="disadvantage-title">Tiempo de Espera</div>
+                            <div class="disadvantage-description">
+                                Los desarrolladores pueden quedar inactivos mientras se realizan las pruebas, y viceversa. Esto crea cuellos de botella que reducen la eficiencia general del equipo y aumentan los tiempos de entrega.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="disadvantage-card">
+                        <div class="disadvantage-icon">
+                            <i class="fas fa-turtle fa-2x"></i>
+                        </div>
+                        <div class="disadvantage-content">
+                            <div class="disadvantage-title">Procesos Lentos</div>
+                            <div class="disadvantage-description">
+                                Las pruebas de regresión manual consumen una enorme cantidad de tiempo y recursos. Cada ciclo de testing requiere intervención humana repetitiva, limitando la velocidad de desarrollo.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="warning-diagram">
+                    <svg viewBox="0 0 200 200">
+                        <polygon points="100,20 180,160 20,160" fill="none" stroke="#f56565" stroke-width="3"></polygon>
+                        <circle cx="100" cy="140" r="4" fill="#f56565"></circle>
+                        <line x1="100" y1="50" x2="100" y2="120" stroke="#f56565" stroke-width="4"></line>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="IA_Testing_p03_b.html"><div class="logo-text">Vinculadas &amp; Seguros -></div></a>
+        </div>
+    </div>
+</body>
+</html>
